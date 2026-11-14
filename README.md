@@ -18,8 +18,9 @@ O objetivo é utilizar Inteligência Artificial para classificar automaticamente
 ## Tecnologias
 
 - Python
+- Requests
+- Git
 - GitHub
-- Large Language Model (LLM)
 
 ## Estrutura
 
@@ -33,9 +34,47 @@ Dockerfile
 .gitignore
 ```
 
+## Como Executar
+
+Instale as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+Execute o projeto:
+
+```bash
+python main.py
+```
+
+## Exemplo de Uso
+
+Entrada:
+
+```text
+Preciso solicitar meu histórico escolar.
+```
+
+Categoria esperada:
+
+```text
+Documentos
+```
+
 ## Status
 
-🚧 Em desenvolvimento
+🚧 MVP em desenvolvimento
+
+✅ Estrutura inicial concluída
+
+✅ Entrada textual implementada
+
+✅ Projeto publicado no GitHub
+
+⏳ Integração com LLM em andamento
+
+⏳ Docker em desenvolvimento
 
 ## Autor
 
