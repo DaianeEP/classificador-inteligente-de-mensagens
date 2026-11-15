@@ -1,0 +1,1 @@
+# Dockerfile será implementado em etapas futuras do projeto

@@ -1,17 +1,8 @@
-CATEGORIAS = [
-    "Pedagógico",
-    "Financeiro",
-    "Documentos",
-    "Matrícula",
-    "Justificativa de Ausência",
-    "Outros"
-]
+from llm import montar_prompt
 
 texto = input("Digite a solicitação do aluno: ")
 
-print("\nMensagem recebida:")
-print(texto)
+prompt = montar_prompt(texto)
 
-print("\nCategorias possíveis:")
-for categoria in CATEGORIAS:
-    print(f"- {categoria}")
+print("\nPrompt gerado:")
+print(prompt)
