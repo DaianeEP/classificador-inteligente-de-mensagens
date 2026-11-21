@@ -6,7 +6,7 @@ Projeto desenvolvido para a etapa **P0** da capacitação [TrendsIA Sistemas Age
 
 O objetivo é utilizar Inteligência Artificial para classificar automaticamente solicitações acadêmicas em categorias pré-definidas, interpretando o contexto e a intenção da mensagem sem depender exclusivamente de palavras-chave.
 
-O projeto utiliza um Large Language Model (LLM) para realizar a classificação semântica das solicitações, permitindo compreender a intenção do usuário mesmo quando diferentes palavras ou formas de escrita são utilizadas.
+O projeto foi desenvolvido para utilização de um Large Language Model (LLM) na classificação semântica de solicitações acadêmicas. A arquitetura da aplicação foi estruturada para integração com modelos de IA disponibilizados pelo ambiente da capacitação, permitindo a classificação das mensagens com base na intenção do usuário e não apenas em palavras-chave.
 
 
 ## Categorias
@@ -21,58 +21,124 @@ O projeto utiliza um Large Language Model (LLM) para realizar a classificação 
 ## Tecnologias
 
 - **Linguagem:** Python
-- **Integração:** Requests / API de LLM
-- **Infraestrutura & Versionamento:** Docker, Git e GitHub
+- **Framework Web:** Flask
+- **Cominicação HTTP:** Requests
+- **Modelos de IA:** LLM (Lhama - ambiente da capacitação)
+- **Infraestrutura e Versionamento:** Docker, Git e GitHub
+- **Testes:** Pytest
 
 ## Estrutura
 
 ```text
 classificador-inteligente-de-mensagens/
-├── app.py
-├── main.py
-├── llm.py
-├── requirements.txt
-├── README.md
+├── src/
+│   ├── app.py
+│   └── llm.py
+│
+├── tests/
+│   └── test_llm.py
+│
+├── .env.example
+├── .dockerignore
+├── .gitignore
 ├── Dockerfile
-└── .gitignore
+├── README.md
+└── requirements.txt
 ```
+
+## Descrição da Estrutura
+
+### src/
+Contém o código-fonte principal da aplicação.
+
+- **app.py**: API Flask responsável pelos endpoints da aplicação.
+- **llm.py**: lógica de geração do prompt de classificação.
+
+### tests/
+Contém os testes automatizados do projeto.
+
+- **test_llm.py**: valida o comportamento da função de geração de prompts.
+
+### Arquivos de configuração
+
+- **.env.example**: modelo de variáveis de ambiente.
+- **.dockerignore**: arquivos ignorados durante o build do Docker.
+- **.gitignore**: arquivos ignorados pelo Git.
+- **Dockerfile**: define a criação da imagem Docker.
+- **requirements.txt**: dependências do projeto.
+- **README.md**: documentação do projeto.
+
 
 ## Como Executar
 
-1. Clone o repositório: 
+### Executar localmente
 
-```bash
-git clone https://github.com/DaianeEP/classificador-inteligente-de-mensagens.git
-cd classificador-inteligente-de-mensagens
-```
-
-2. Instale as dependências:
+Instale as dependências:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Configure as variáveis de ambiente necessárias (quando aplicável).
-
-4. Execute o projeto:
+Inicie a aplicação:
 
 ```bash
-python main.py
+python src/app.py
+```
+
+A API será disponibilizada em:
+
+```text
+http://localhost:8080
+```
+
+### Testar a aplicação
+
+No navegador, acesse:
+
+```text
+http://localhost:8080
+```
+
+Retorno esperado:
+
+```json
+{
+  "status": "online",
+  "projeto": "Classificador Inteligente de Mensagens",
+  "categorias": [
+    "Pedagógico",
+    "Financeiro",
+    "Documentos",
+    "Matrícula",
+    "Justificativa de Ausência",
+    "Outros"
+  ]
+}
+```
+
+### Executar com Docker
+
+Construir a imagem:
+
+```bash
+docker build -t classificador-inteligente .
+```
+
+Executar o container:
+
+```bash
+docker run -p 8080:8080 classificador-inteligente
+```
+
+A aplicação ficará disponível em:
+
+```text
+http://localhost:8080
 ```
 
 ## Exemplo de Uso
 
-Entrada:
-
-```text
-Preciso solicitar meu histórico escolar.
-```
-
-Categoria esperada:
-
-```text
-Documentos
-```
+Exemplo da classificação esperada após integração completa com LLM.
 
 ## Status
 
@@ -86,7 +152,9 @@ Documentos
 
 ✅ Docker configurado e testado
 
-⏳ Integração com LLM em andamento
+✅ Estrutura preparada para integração com LLM
+
+⏳ Evolução para classificação semântica em andamento
 
 
 ## Autora
