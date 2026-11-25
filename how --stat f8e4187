@@ -1,0 +1,10 @@
+[33m1f30e6d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m refactor: reorganiza estrutura do projeto e atualiza documentação
+[33ma469439[m refactor: reorganiza estrutura do projeto e adiciona flask.
+[33m079d7c8[m refactor: organiza a estrutura do projeto em src
+[33md33fa5c[m docs: aprimora README do projeto
+[33m91cd7a7[m chore: ignora arquivos tar
+[33mf3654f4[m feat: adiciona suporte Docker ao projeto.
+[33m10fc45b[m feat: adiciona Dockerfile do projeto
+[33mf8e4187[m feat: adiciona estrutura inicial de integração com LLM
+[33m7fb4f5e[m docs: atualiza README do projeto
+[33mce64962[m feat: estrutura inicial do P0
