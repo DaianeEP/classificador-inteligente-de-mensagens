@@ -6,7 +6,7 @@ Projeto desenvolvido para a etapa **P0** da capacitação [TrendsIA Sistemas Age
 
 O objetivo é utilizar Inteligência Artificial para classificar automaticamente solicitações acadêmicas em categorias pré-definidas, interpretando o contexto e a intenção da mensagem sem depender exclusivamente de palavras-chave.
 
-O projeto foi desenvolvido para utilização de um Large Language Model (LLM) na classificação semântica de solicitações acadêmicas. A arquitetura da aplicação foi estruturada para integração com modelos de IA disponibilizados pelo ambiente da capacitação, permitindo a classificação das mensagens com base na intenção do usuário e não apenas em palavras-chave.
+O projeto foi desenvolvido para utilização de um Large Language Model (LLM) na classificação semântica de solicitações acadêmicas. A arquitetura da aplicação foi estruturada para integração com modelos de IA disponibilizados pelo ambiente da capacitação (Devel), permitindo a classificação das mensagens com base na intenção do usuário levando em consideração os diferentes contextos para uma mesma solicitação.
 
 
 ## Categorias
