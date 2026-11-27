@@ -13,7 +13,7 @@ O projeto foi desenvolvido para utilização de um Large Language Model (LLM) na
 
 - **Pedagógico:** Dúvidas sobre aulas, notas, professores e conteúdo.
 - **Financeiro:** Boletos, mensalidades, bolsas e negociações.
-- **Documentos:** Histórico escolar, declarações, certificados e atestados.
+- **Documentos:** Histórico escolar, declarações, certificados e atestados de matrícula e conclusão.
 - **Matrícula:** Inscrição, rematrícula, trancamento e transferência.
 - **Justificativa de Ausência:** Atestados médico e abono de faltas.
 - **Outros:** Solicitações gerais que exigem triagem humana.
