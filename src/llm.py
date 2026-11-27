@@ -1,6 +1,7 @@
 from openai import OpenAI, DefaultHttpxClient
 from config import LLM_API_URL, LLM_MODEL
 
+
 CATEGORIAS = [
     "Pedagógico",
     "Financeiro",
@@ -32,24 +33,59 @@ Responda somente com o nome da categoria.
 
 
 def classificar_mensagem(texto):
+
+    if not LLM_API_URL:
+        raise ValueError(
+            "Configuração ausente: LLM_API_URL não definida."
+        )
+
+    if not LLM_MODEL:
+        raise ValueError(
+            "Configuração ausente: LLM_MODEL não definido."
+        )
+
     prompt = montar_prompt(texto)
 
-    client = OpenAI(
-        base_url=LLM_API_URL,
-        api_key="qualquer",
-        http_client=DefaultHttpxClient(
-            verify=False
+    try:
+
+        client = OpenAI(
+            base_url=LLM_API_URL,
+            api_key="qualquer",
+            http_client=DefaultHttpxClient(
+                verify=False,
+                timeout=30.0
+            )
         )
-    )
 
-    resposta = client.chat.completions.create(
-        model=LLM_MODEL,
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ]
-    )
+        resposta = client.chat.completions.create(
+            model=LLM_MODEL,
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
+        )
 
-    return resposta.choices[0].message.content.strip()
+        if not resposta.choices:
+            raise ValueError(
+                "O LLM retornou uma resposta vazia."
+            )
+
+        conteudo = resposta.choices[0].message.content
+
+        if not conteudo:
+            raise ValueError(
+                "O conteúdo retornado pelo LLM está vazio."
+            )
+
+        return conteudo.strip()
+
+    except ValueError:
+        raise
+
+    except Exception as erro:
+
+        raise RuntimeError(
+            f"Falha de comunicação com o LLM: {str(erro)}"
+        )

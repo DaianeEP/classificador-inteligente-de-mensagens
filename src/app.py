@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from llm import classificar_mensagem
 
+
 app = Flask(__name__)
 
 
@@ -38,10 +39,22 @@ def classificar():
             "categoria": categoria
         })
 
-    except Exception as erro:
+    except ValueError as erro:
 
         return jsonify({
-            "erro": f"Falha ao acessar o LLM: {str(erro)}"
+            "erro": str(erro)
+        }), 400
+
+    except RuntimeError as erro:
+
+        return jsonify({
+            "erro": str(erro)
+        }), 503
+
+    except Exception:
+
+        return jsonify({
+            "erro": "Erro interno inesperado."
         }), 500
 
 
